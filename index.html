@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Week Matching Game</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7e5e7; /* Light pink */
+        }
+        #container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .day-column, .date-column {
+            text-align: center;
+        }
+        .day, .date {
+            height: 50px;
+            background-color: #fce6e6; /* Light red */
+            color: #e71d36; /* Deep pink */
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .day:hover, .date:hover {
+            transform: scale(1.05);
+        }
+        .matched {
+            background-color: #b4f1a6 !important; /* Light green */
+            color: #0d834d !important; /* Dark green */
+        }
+        #score {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Valentine's Week Matching Game</h1>
+    <div id="container">
+        <div class="day-column">
+            <div class="day" id="day1" onclick="selectDay('day1')">🌹 Rose Day</div>
+            <div class="day" id="day2" onclick="selectDay('day2')">💍 Propose Day</div>
+            <div class="day" id="day3" onclick="selectDay('day3')">🍫 Chocolate Day</div>
+            <div class="day" id="day4" onclick="selectDay('day4')">🧸 Teddy Day</div>
+            <div class="day" id="day5" onclick="selectDay('day5')">🤝 Promise Day</div>
+            <div class="day" id="day6" onclick="selectDay('day6')">🫂 Hug Day</div>
+            <div class="day" id="day7" onclick="selectDay('day7')">💋 Kiss Day</div>
+            <div class="day" id="day8" onclick="selectDay('day8')">❤️ Valentine's Day</div>
+        </div>
+        <div class="date-column">
+            <!-- Shuffled Dates -->
+            <div class="date" id="date1" onclick="checkMatch('date1')">14th February</div>
+            <div class="date" id="date2" onclick="checkMatch('date2')">12th February</div>
+            <div class="date" id="date3" onclick="checkMatch('date3')">7th February</div>
+            <div class="date" id="date4" onclick="checkMatch('date4')">9th February</div>
+            <div class="date" id="date5" onclick="checkMatch('date5')">11th February</div>
+            <div class="date" id="date6" onclick="checkMatch('date6')">10th February</div>
+            <div class="date" id="date7" onclick="checkMatch('date7')">8th February</div>
+            <div class="date" id="date8" onclick="checkMatch('date8')">13th February</div>
+        </div>
+    </div>
+
+    <div id="score">Score: <span id="points">0</span></div>
+
+    <script>
+        let selectedDay = null;
+        let points = 0;
+
+        function selectDay(dayId) {
+            selectedDay = dayId;
+        }
+
+        function checkMatch(dateId) {
+            const dateElement = document.getElementById(dateId);
+            if (selectedDay) {
+                const dayElement = document.getElementById(selectedDay);
+                const dayText = dayElement.innerText.trim();
+                const dateText = dateElement.innerText.trim();
+                if (dayText.includes('Rose Day') && dateText.includes('7')) {
+                    dateElement.classList.add('matched');
+                    points++;
+                    document.getElementById('points').innerText = points;
+                    selectedDay = null;
+                    if (points === 8) {
+                        alert('Congratulations! You matched all the dates.Neilcakesnmore wishes YOU AND YOUR BELOVED A Happy Valentine\'s Week!');
+                        window.location.href = 'https://www.example.com/quotes'; 
+                    }
+                } else if (dayText.includes('Propose Day') && dateText.includes('8')) {
+                    dateElement.classList.add('matched');
+                    points++;
+                    document.getElementById('points').innerText = points;
+                    selectedDay = null;
+                    if (points === 8) {
+                        alert('Congratulations! You matched all the dates.Neilcakesnmore wishes YOU AND YOUR BELOVED A Happy Valentine\'s Week!');
+                        window.location.href = 'https://www.example.com/quotes'; 
+                    }
+                } else if (dayText.includes('Chocolate Day') && dateText.includes('9')) {
+                    dateElement.classList.add('matched');
+                    points++;
+                    document.getElementById('points').innerText = points;
+                    selectedDay = null;
+                    if (points === 8) {
+                        alert('Congratulations! You matched all the dates.Neilcakesnmore wishes YOU AND YOUR BELOVED A Happy Valentine\'s Week!');
+                        window.location.href = 'https://www.example.com/quotes'; 
+                    }
+                } else if (dayText.includes('Teddy Day') && dateText.includes('10')) {
+                    dateElement.classList.add('matched');
+                    points++;
+                    document.getElementById('points').innerText = points;
+                    selectedDay = null;
+                    if (points === 8) {
+                        alert('Congratulations! You matched all the dates.Neilcakesnmore wishes YOU AND YOUR BELOVED A Happy Valentine\'s Week!');
+                        window.location.href = 'https://www.example.com/quotes'; 
+                    }
+                } else if (dayText.includes('Promise Day') && dateText.includes('11')) {
+                    dateElement.classList.add('matched');
+                    points++;
+                    document.getElementById('points').innerText = points;
+                    selectedDay = null;
+                    if (points === 8) {
+                        alert('Congratulations! You matched all the dates.Neilcakesnmore wishes YOU AND YOUR BELOVED A Happy Valentine\'s Week!');
+                        window.location.href = 'https://www.example.com/quotes';          
+                       }
+                } else if (dayText.includes('Hug Day') && dateText.includes('12')) {
+                    dateElement.classList.add('matched');
+                    points++;
+                    document.getElementById('points').innerText = points;
+                    selectedDay = null;
+                    if (points === 8) {
+                        alert('Congratulations! You matched all the dates.Neilcakesnmore wishes YOU AND YOUR BELOVED A Happy Valentine\'s Week!');
+                        window.location.href = 'https://www.example.com/quotes'; 
+                    }
+                } else if (dayText.includes('Kiss Day') && dateText.includes('13')) {
+                    dateElement.classList.add('matched');
+                    points++;
+                    document.getElementById('points').innerText = points;
+                    selectedDay = null;
+                    if (points === 8) {
+                        alert('Congratulations! You matched all the dates.Neilcakesnmore wishes YOU AND YOUR BELOVED A Happy Valentine\'s Week!');
+                        window.location.href = 'https://www.example.com/quotes'; 
+                    }
+                } else if (dayText.includes("Valentine's Day") && dateText.includes('14')) {
+                    dateElement.classList.add('matched');
+                    points++;
+                    document.getElementById('points').innerText = points;
+                    selectedDay = null;
+                    if (points === 8) {
+                        alert('Congratulations! You matched all the dates.Neilcakesnmore wishes YOU AND YOUR BELOVED A Happy Valentine\'s Week!');
+                        window.location.href = 'https://www.example.com/quotes'; 
+                    }
+                } else {
+                    alert('Incorrect match! Please try again.');
+                }
+            } else {
+                alert('Please select a day first.');
+            }
+        }
+
+        // Function to shuffle dates
+        function shuffleDates() {
+            const dateColumn = document.querySelector('.date-column');
+            for (let i = dateColumn.children.length; i >= 0; i--) {
+                dateColumn.appendChild(dateColumn.children[Math.random() * i | 0]);
+            }
+        }
+
+        // Shuffle dates when the page loads
+        window.onload = shuffleDates;
+    </script>
+</body>
+</html>
